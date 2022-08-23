@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:meal_monkey/screens/login.dart';
@@ -13,8 +13,6 @@ import 'my_order.dart';
 import 'notification.dart';
 import 'payment_details.dart';
 
-
-
 class MorePage extends StatefulWidget {
   const MorePage({Key? key}) : super(key: key);
 
@@ -26,8 +24,6 @@ class _MorePageState extends State<MorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -35,19 +31,25 @@ class _MorePageState extends State<MorePage> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children:  [Center(
-                  child: Text(
-                    mores,
-                    style: TextStyle(
-                        color: black, fontWeight: FontWeight.bold, fontSize: 25),
+                children: [
+                  Center(
+                    child: Text(
+                      mores,
+                      style: TextStyle(
+                          color: black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25),
+                    ),
                   ),
-                ),
-
                   Icon(
                     icCart,
                     color: black,
-                  ),],
-              ),SizedBox(height: 20,),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
               ListView.builder(
                 itemCount: more.length,
                 shrinkWrap: true,
@@ -96,7 +98,8 @@ class _MorePageState extends State<MorePage> {
                             MaterialPageRoute(
                               builder: (context) => const AboutUsPage(),
                             ));
-                      } if (index == 5) {
+                      }
+                      if (index == 5) {
                         await fbLogout();
                         await googleLogOut();
                         setState(() {});
@@ -106,7 +109,6 @@ class _MorePageState extends State<MorePage> {
                               builder: (context) => const LoginPage(),
                             ));
                       }
-
                     },
                     leading: CircleAvatar(
                       backgroundColor: black,
@@ -133,26 +135,26 @@ class _MorePageState extends State<MorePage> {
 List more = [
   {
     'circleAvatar': icPaid,
-    'title':paymentDetails,
+    'title': paymentDetails,
   },
   {
     'circleAvatar': icWork,
-    'title':myOrder,
+    'title': myOrder,
   },
   {
     'circleAvatar': icNotification,
-    'title':notification,
+    'title': notification,
   },
   {
-    'circleAvatar':icMail,
+    'circleAvatar': icMail,
     'title': inbox,
   },
   {
-    'circleAvatar':icAbout,
-    'title':aboutUs,
+    'circleAvatar': icAbout,
+    'title': aboutUs,
   },
   {
-    'circleAvatar':icLOgOut,
-    'title':logOut
+    'circleAvatar': icLOgOut,
+    'title': logOut,
   }
 ];
