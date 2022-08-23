@@ -32,7 +32,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
                           fontSize: 25),
                     ),const Icon(icCart)
                   ],
-                    // 56485691
+                    // ,jbnjkn 56485691
                 ),
                 ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
