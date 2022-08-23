@@ -1,11 +1,294 @@
+// import 'package:flutter/cupertino.dart';
+// import 'package:flutter/material.dart';
+//
+// import '../../utils/color.dart';
+// import '../../utils/icon.dart';
+// import '../../utils/responsive.dart';
+// import '../../utils/strings.dart';
+//
+//
+// class Foods extends StatefulWidget {
+//   const Foods({Key? key}) : super(key: key);
+//
+//   @override
+//   State<Foods> createState() => _FoodsState();
+// }
+//
+// class _FoodsState extends State<Foods> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SafeArea(
+//         child: SingleChildScrollView(
+//           child: Column(
+//             children: [
+//               Padding(
+//                 padding: const EdgeInsets.all(15.0),
+//                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                   children: [
+//
+//                     Text(
+//                       foods,
+//                       style: const TextStyle(color: black, fontSize: 30),
+//                     ),
+//                     const Icon(
+//                       icCart,
+//                       color: black,
+//                     ),
+//                   ],
+//                 ),
+//               ),
+//               ListView.separated(
+//                 shrinkWrap: true,
+//                 physics: const NeverScrollableScrollPhysics(),
+//                 itemCount: menuList.length,
+//                 itemBuilder: (context, index) {
+//                   return GestureDetector(
+//                     onTap: () {
+//                       if (index == 1) {
+//                         Navigator.push(
+//                             context,
+//                             MaterialPageRoute(
+//                               builder: (context) => const Item(),
+//                             ));
+//                       }
+//                     },
+//                     child: Container(
+//                       height: 300,
+//                       width: 100,
+//                       decoration: BoxDecoration(
+//                         // color: Colors.red,
+//                         image: DecorationImage(
+//                             image: NetworkImage(menuList[index]['img']),
+//                             fit: BoxFit.cover),
+//                       ),
+//                       alignment: Alignment.bottomLeft,
+//                       child: ListTile(
+//                         title: Text(
+//                           menuList[index]['itemName'],
+//                           style: const TextStyle(color: white),
+//                         ),
+//                         subtitle: Row(
+//                           children: [
+//                             const Icon(
+//                               icStar,
+//                               color: orange,
+//                             ),
+//                             Text(
+//                               menuList[index]['rate'],
+//                               style: const TextStyle(color: orange),
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     ),
+//                   );
+//                 },
+//                 separatorBuilder: (BuildContext context, int index) {
+//                   return const SizedBox(
+//                     height: 5,
+//                   );
+//                 },
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+// List<Map> menuList = [
+//   {
+//     'img':
+//         'https://images.unsplash.com/photo-1619213538819-7628fe20dacf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcGxlJTIwcGllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+//     'itemName': 'Apple pie',
+//     'rate': '4.7',
+//   },
+//   {
+//     'img':
+//         'https://images.unsplash.com/photo-1484300681262-5cca666b0954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGRhcmslMjBjaG9jb2xhdGUlMjBjYWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+//     'itemName': 'Dark chocolate cake',
+//     'rate': '4.9',
+//   },
+//   {
+//     'img':
+//         'https://images.unsplash.com/photo-1578905896074-d2f0ecde5aed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3RyZWV0JTIwc2hha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+//     'itemName': 'Street Shake',
+//     'rate': '4.9',
+//   },
+//   {
+//     'img':
+//         'https://images.unsplash.com/photo-1607920591413-4ec007e70023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZnVkZ3klMjBicm93bmllc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60',
+//     'itemName': 'Fudgy Brownies',
+//     'rate': '4.9',
+//   },
+// ];
+//
+// class Item extends StatefulWidget {
+//   const Item({Key? key}) : super(key: key);
+//
+//   @override
+//   State<Item> createState() => _ItemState();
+// }
+//
+// class _ItemState extends State<Item> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: SafeArea(
+//         child: Stack(
+//           children: [
+//             Container(
+//               height: Screens.height(context) * 0.5,
+//               width: Screens.width(context),
+//               decoration: const BoxDecoration(
+//                   image: DecorationImage(
+//                       image: NetworkImage(
+//                           'https://images.unsplash.com/photo-1484300681262-5cca666b0954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGRhcmslMjBjaG9jb2xhdGUlMjBjYWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'),
+//                       fit: BoxFit.cover)),
+//             ),
+//             Container(
+//               height: Screens.height(context) * 0.6,
+//               width: Screens.width(context),
+//               margin: EdgeInsets.only(top: Screens.height(context) * 0.43),
+//               decoration: const BoxDecoration(
+//                 color: white,
+//                 borderRadius: BorderRadius.only(
+//                   topRight: Radius.circular(50),
+//                   topLeft: Radius.circular(45),
+//                 ),
+//               ),
+//               child: Padding(
+//                 padding: const EdgeInsets.all(20.0),
+//                 child: Column(
+//                   crossAxisAlignment: CrossAxisAlignment.start,
+//                   children: [
+//                     const Text(
+//                       'Dark Chocolate Cake',
+//                       style:
+//                           TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+//                     ),
+//                     SizedBox(
+//                       height: 30,
+//                       child: _star(context),
+//                     ),
+//                     const Text('4.5 Star Ratings'),
+//                     const Text('Description'),
+//                     const Text(
+//                         'Lorem ipsum dolor sit amet,consectetur adipiscing elit.'
+//                         'Ornare leo non mollis id cursus.Eu euismod faucibus in'
+//                         'leo malesuada'),
+//                     const Divider(thickness: 2),
+//                     Row(
+//                       children: [
+//                         const Text('Number of Portions'),
+//                         const SizedBox(
+//                           width: 20,
+//                         ),
+//                         CupertinoButton(
+//                           borderRadius: BorderRadius.circular(30),
+//                           color: orange,
+//                           padding: const EdgeInsets.symmetric(horizontal: 20),
+//                           onPressed: () {},
+//                           child: const Icon(icRemove),
+//                         ),
+//                         const Text(
+//                           '3',
+//                           style: TextStyle(fontSize: 30),
+//                         ),
+//                         CupertinoButton(
+//                           borderRadius: BorderRadius.circular(30),
+//                           color: orange,
+//                           padding: const EdgeInsets.symmetric(horizontal: 20),
+//                           onPressed: () {},
+//                           child: const Icon(icAdd),
+//                         ),
+//                       ],
+//                     ),
+//                     Stack(
+//                       children: [
+//                         Container(
+//                           height: 150,
+//                           width: 100,
+//                           decoration: const BoxDecoration(
+//                             color: orange,
+//                             borderRadius: BorderRadius.only(
+//                               topRight: Radius.circular(30),
+//                               bottomRight: Radius.circular(30),
+//                             ),
+//                           ),
+//                         ),
+//                         Container(
+//                           height: 80,
+//                           width: 200,
+//                           margin: const EdgeInsets.only(top: 40, left: 50),
+//                           decoration: const BoxDecoration(
+//                             color: white,
+//                             borderRadius: BorderRadius.only(
+//                                 topLeft: Radius.circular(20),
+//                                 bottomLeft: Radius.circular(20)),
+//                           ),
+//                           child: Row(
+//                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                             children: [
+//                               const SizedBox(
+//                                 width: 0,
+//                               ),
+//                               Column(
+//                                 children: [
+//                                   const Text('Total Price'),
+//                                   const Text('LKR 1500'),
+//                                   MaterialButton(
+//                                     onPressed: () {},
+//                                     color: orange,
+//                                     shape: OutlineInputBorder(
+//                                         borderRadius: BorderRadius.circular(20),
+//                                         borderSide: const BorderSide(color: orange)),
+//                                     child: const Text(
+//                                       'Add To Cart',
+//                                       style: TextStyle(color: white),
+//                                     ),
+//                                   ),
+//                                 ],
+//                               ),
+//                               const Icon(icCart)
+//                             ],
+//                           ),
+//                         )
+//                       ],
+//                     )
+//                   ],
+//                 ),
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+// _star(BuildContext context) {
+//   return ListView.builder(
+//     // shrinkWrap: true,
+//     itemCount: 5,
+//     scrollDirection: Axis.horizontal,
+//     itemBuilder: (context, index) => index == 4
+//         ? const Icon(
+//             icStarHalf,
+//             color: orange,
+//           )
+//         : const Icon(
+//             icStar,
+//             color: orange,
+//           ),
+//   );
+// }
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../utils/color.dart';
-import '../../utils/icon.dart';
 import '../../utils/responsive.dart';
-import '../../utils/strings.dart';
-
 
 class Foods extends StatefulWidget {
   const Foods({Key? key}) : super(key: key);
@@ -15,34 +298,60 @@ class Foods extends StatefulWidget {
 }
 
 class _FoodsState extends State<Foods> {
+
+  final CollectionReference _products =
+  FirebaseFirestore.instance.collection('food');
+  late Stream<QuerySnapshot> _streams;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _streams = _products.snapshots();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-
-                    Text(
-                      foods,
-                      style: const TextStyle(color: black, fontSize: 30),
-                    ),
-                    const Icon(
-                      icCart,
-                      color: black,
-                    ),
-                  ],
-                ),
-              ),
-              ListView.separated(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.chevron_left,
+              color: Colors.black,
+            ),
+          ),
+          title: const Text(
+            'Food',
+            style: TextStyle(color: Colors.black, fontSize: 30),
+          ),
+          actions: const [
+            Icon(
+              Icons.local_grocery_store,
+              color: Colors.black,
+            ),
+          ],
+          centerTitle: false,
+          backgroundColor: Colors.white,
+        ),
+        body:  StreamBuilder<QuerySnapshot>(
+          stream: _streams,
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasError) {
+              return Center(child: Text(snapshot.error.toString()));
+            }
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            QuerySnapshot querySnapshot = snapshot.data;
+            List<QueryDocumentSnapshot> document = querySnapshot.docs;
+            return SafeArea(
+              child: ListView.builder(
+                itemCount: document.length,
                 shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: menuList.length,
                 itemBuilder: (context, index) {
+                  QueryDocumentSnapshot documents = document[index];
                   return GestureDetector(
                     onTap: () {
                       if (index == 1) {
@@ -59,24 +368,21 @@ class _FoodsState extends State<Foods> {
                       decoration: BoxDecoration(
                         // color: Colors.red,
                         image: DecorationImage(
-                            image: NetworkImage(menuList[index]['img']),
+                            image: NetworkImage(documents['image']),
                             fit: BoxFit.cover),
                       ),
                       alignment: Alignment.bottomLeft,
                       child: ListTile(
-                        title: Text(
-                          menuList[index]['itemName'],
-                          style: const TextStyle(color: white),
-                        ),
+                        title: Text(documents['txt']),
                         subtitle: Row(
                           children: [
                             const Icon(
-                              icStar,
-                              color: orange,
+                              Icons.star,
+                              color: Colors.orange,
                             ),
                             Text(
-                              menuList[index]['rate'],
-                              style: const TextStyle(color: orange),
+                              documents['rate'].toString(),
+                              style: const TextStyle(color: Colors.orange),
                             ),
                           ],
                         ),
@@ -84,16 +390,11 @@ class _FoodsState extends State<Foods> {
                     ),
                   );
                 },
-                separatorBuilder: (BuildContext context, int index) {
-                  return const SizedBox(
-                    height: 5,
-                  );
-                },
               ),
-            ],
-          ),
-        ),
-      ),
+            );
+          },
+        )
+
     );
   }
 }
@@ -101,25 +402,25 @@ class _FoodsState extends State<Foods> {
 List<Map> menuList = [
   {
     'img':
-        'https://images.unsplash.com/photo-1619213538819-7628fe20dacf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcGxlJTIwcGllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+    'https://images.unsplash.com/photo-1619213538819-7628fe20dacf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGFwcGxlJTIwcGllfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
     'itemName': 'Apple pie',
     'rate': '4.7',
   },
   {
     'img':
-        'https://images.unsplash.com/photo-1484300681262-5cca666b0954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGRhcmslMjBjaG9jb2xhdGUlMjBjYWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+    'https://images.unsplash.com/photo-1548865163-afb128596c1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRhcmslMjBjaG9jb2xhdGUlMjBjYWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
     'itemName': 'Dark chocolate cake',
     'rate': '4.9',
   },
   {
     'img':
-        'https://images.unsplash.com/photo-1578905896074-d2f0ecde5aed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3RyZWV0JTIwc2hha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
+    'https://images.unsplash.com/photo-1578905896074-d2f0ecde5aed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8c3RyZWV0JTIwc2hha2V8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60',
     'itemName': 'Street Shake',
     'rate': '4.9',
   },
   {
     'img':
-        'https://images.unsplash.com/photo-1607920591413-4ec007e70023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZnVkZ3klMjBicm93bmllc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60',
+    'https://images.unsplash.com/photo-1607920591413-4ec007e70023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZnVkZ3klMjBicm93bmllc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=400&q=60',
     'itemName': 'Fudgy Brownies',
     'rate': '4.9',
   },
@@ -145,15 +446,16 @@ class _ItemState extends State<Item> {
               decoration: const BoxDecoration(
                   image: DecorationImage(
                       image: NetworkImage(
-                          'https://images.unsplash.com/photo-1484300681262-5cca666b0954?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGRhcmslMjBjaG9jb2xhdGUlMjBjYWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'),
+                        'https://images.unsplash.com/photo-1548865163-afb128596c1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGRhcmslMjBjaG9jb2xhdGUlMjBjYWtlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60',
+                      ),
                       fit: BoxFit.cover)),
             ),
             Container(
-              height: Screens.height(context) * 0.6,
+              height: Screens.height(context) * 0.7,
               width: Screens.width(context),
-              margin: EdgeInsets.only(top: Screens.height(context) * 0.43),
+              margin: EdgeInsets.only(top: Screens.height(context) * 0.3),
               decoration: const BoxDecoration(
-                color: white,
+                color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(50),
                   topLeft: Radius.circular(45),
@@ -167,7 +469,7 @@ class _ItemState extends State<Item> {
                     const Text(
                       'Dark Chocolate Cake',
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                     ),
                     SizedBox(
                       height: 30,
@@ -177,8 +479,8 @@ class _ItemState extends State<Item> {
                     const Text('Description'),
                     const Text(
                         'Lorem ipsum dolor sit amet,consectetur adipiscing elit.'
-                        'Ornare leo non mollis id cursus.Eu euismod faucibus in'
-                        'leo malesuada'),
+                            'Ornare leo non mollis id cursus.Eu euismod faucibus in'
+                            'leo malesuada'),
                     const Divider(thickness: 2),
                     Row(
                       children: [
@@ -188,10 +490,10 @@ class _ItemState extends State<Item> {
                         ),
                         CupertinoButton(
                           borderRadius: BorderRadius.circular(30),
-                          color: orange,
+                          color: Colors.orange,
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           onPressed: () {},
-                          child: const Icon(icRemove),
+                          child: const Icon(Icons.remove),
                         ),
                         const Text(
                           '3',
@@ -199,10 +501,10 @@ class _ItemState extends State<Item> {
                         ),
                         CupertinoButton(
                           borderRadius: BorderRadius.circular(30),
-                          color: orange,
+                          color: Colors.orange,
                           padding: const EdgeInsets.symmetric(horizontal: 20),
                           onPressed: () {},
-                          child: const Icon(icAdd),
+                          child: const Icon(Icons.add),
                         ),
                       ],
                     ),
@@ -212,7 +514,7 @@ class _ItemState extends State<Item> {
                           height: 150,
                           width: 100,
                           decoration: const BoxDecoration(
-                            color: orange,
+                            color: Colors.orange,
                             borderRadius: BorderRadius.only(
                               topRight: Radius.circular(30),
                               bottomRight: Radius.circular(30),
@@ -224,7 +526,7 @@ class _ItemState extends State<Item> {
                           width: 200,
                           margin: const EdgeInsets.only(top: 40, left: 50),
                           decoration: const BoxDecoration(
-                            color: white,
+                            color: Colors.white,
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(20),
                                 bottomLeft: Radius.circular(20)),
@@ -232,27 +534,23 @@ class _ItemState extends State<Item> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const SizedBox(
-                                width: 0,
-                              ),
+                              const SizedBox(width: 0,),
                               Column(
                                 children: [
                                   const Text('Total Price'),
                                   const Text('LKR 1500'),
                                   MaterialButton(
                                     onPressed: () {},
-                                    color: orange,
+                                    color: Colors.orange,
                                     shape: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(20),
-                                        borderSide: const BorderSide(color: orange)),
-                                    child: const Text(
-                                      'Add To Cart',
-                                      style: TextStyle(color: white),
+                                        borderSide: const BorderSide(color: Colors.orange)
                                     ),
+                                    child: const Text('Add To Cart',style: TextStyle(color: Colors.white),),
                                   ),
                                 ],
                               ),
-                              const Icon(icCart)
+                              const Icon(Icons.local_grocery_store)
                             ],
                           ),
                         )
@@ -276,12 +574,12 @@ _star(BuildContext context) {
     scrollDirection: Axis.horizontal,
     itemBuilder: (context, index) => index == 4
         ? const Icon(
-            icStarHalf,
-            color: orange,
-          )
+      Icons.star_half,
+      color: Colors.orange,
+    )
         : const Icon(
-            icStar,
-            color: orange,
-          ),
+      Icons.star,
+      color: Colors.orange,
+    ),
   );
 }

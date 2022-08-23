@@ -43,6 +43,7 @@ dependencies:
   firebase_core:
   flutter_facebook_auth:
   badges:
+  cloud_firestore:
   google_sign_in:
 
 
