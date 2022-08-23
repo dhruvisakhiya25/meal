@@ -41,12 +41,13 @@ class _AboutUsPageState extends State<AboutUsPage> {
                   itemBuilder: (context, index) => RichText(
                     text: TextSpan(
                         text: '.',
-  //                      style: const TextStyle(color: orange, fontSize: 50),
+                       style: const TextStyle(color: orange, fontSize: 50),
                         children: [
                           TextSpan(
                               text: lorem,
-                              style: const TextStyle(color: black, fontSize: 17)),
-                        ]),
+                              style:
+                      const TextStyle(color: black, fontSize: 17)),
+                        ])
                   ),
                 )
               ],
