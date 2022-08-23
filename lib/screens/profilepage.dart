@@ -184,8 +184,8 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               if (userData != null)
                 Text(
-                  hiThere + userData!['name'],
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+               userData!['name'],
+                  style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
                 )
               else
                 Text(userEmail),
@@ -215,9 +215,9 @@ class _ProfilePageState extends State<ProfilePage> {
                     margin: const EdgeInsets.all(10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center ,
                       children: [
-                        const Text('Name'),
+
                         Text(
                           userData!['name'],
                           style: const TextStyle(fontSize: 20),
@@ -253,10 +253,10 @@ class _ProfilePageState extends State<ProfilePage> {
                         borderRadius: BorderRadius.circular(30)),
                     padding: const EdgeInsets.only(left: 20),
                     margin: const EdgeInsets.all(10),
-                    child: Column(
+                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Email'),
+
                         Text(
                           userData!['email'],
                           style: const TextStyle(fontSize: 20),
