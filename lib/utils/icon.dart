@@ -30,3 +30,4 @@ const IconData icLocation = Icons.location_on;
 const IconData icDone =  Icons.done;
 const IconData icVisibilityOff = Icons.visibility_off ;
 const IconData icVisibility =Icons.visibility;
+const IconData icLOgOut =Icons.logout;

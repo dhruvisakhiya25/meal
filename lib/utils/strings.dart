@@ -122,6 +122,7 @@ String notification='Notification';
 String inbox='Inbox';
 String aboutUs='About Us';
 String mores ='More';
+String logOut ='Log Out';
 
 ///my order page
 String seventy= '\$70 ';

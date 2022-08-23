@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:meal_monkey/screens/login.dart';
+import 'package:meal_monkey/screens/profilepage.dart';
 
 import '../utils/color.dart';
 import '../utils/icon.dart';
@@ -56,7 +58,7 @@ class _MorePageState extends State<MorePage> {
                   color: white,
                   margin: const EdgeInsets.all(5),
                   child: ListTile(
-                    onTap: () {
+                    onTap: () async {
                       if (index == 0) {
                         Navigator.push(
                           context,
@@ -94,7 +96,17 @@ class _MorePageState extends State<MorePage> {
                             MaterialPageRoute(
                               builder: (context) => const AboutUsPage(),
                             ));
+                      } if (index == 5) {
+                        await fbLogout();
+                        await googleLogOut();
+                        setState(() {});
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LoginPage(),
+                            ));
                       }
+
                     },
                     leading: CircleAvatar(
                       backgroundColor: black,
@@ -139,4 +151,8 @@ List more = [
     'circleAvatar':icAbout,
     'title':aboutUs,
   },
+  {
+    'circleAvatar':icLOgOut,
+    'title':logOut
+  }
 ];
